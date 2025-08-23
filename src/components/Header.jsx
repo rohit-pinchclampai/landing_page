@@ -34,12 +34,12 @@ export default function Header() {
         </Link>
 
         <nav className="space-x-8 relative">
-          <Link
+          {/* <Link
             to="/"
             className="hover:text-accent transition duration-300 font-medium"
           >
             Home
-          </Link>
+          </Link> */}
 
           {/* Dropdown Menu */}
           <div className="inline-block relative" ref={dropdownRef}>
