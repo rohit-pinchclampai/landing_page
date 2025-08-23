@@ -18,7 +18,7 @@ export default function Hero() {
           Clamping AI to your needs.  
         </h2>
         <p className="text-xl text-black-100 mb-10 animate-fadeIn">
-        Your enterprise partner for RAG, Agentic AI, chatbot solutions, and fine-tuned large language models.
+        Your enterprise partner for RAG, Agentic AI, chatbot solutions, and fine-tuning large language models.
         </p>
         <a
           href="#services"
