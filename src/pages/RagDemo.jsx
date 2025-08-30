@@ -5,6 +5,7 @@ export default function RagDemo() {
   const [file, setFile] = useState(null);
   const [uploadStatus, setUploadStatus] = useState(""); // Upload message
   const [isUploaded, setIsUploaded] = useState(false);
+  const [docId, setDocId] = useState("");
 
   const [query, setQuery] = useState("");
   const [answer, setAnswer] = useState("");
@@ -21,6 +22,7 @@ export default function RagDemo() {
     e.preventDefault();
     setUploadStatus("");
     setIsUploaded(false);
+    setDocId("");
 
     if (!file) {
       setUploadStatus("⚠️ Please select a file first.");
@@ -38,10 +40,11 @@ export default function RagDemo() {
 
       setUploadStatus(res.data.message || "✅ File uploaded successfully!");
       setIsUploaded(true);
+      setDocId(res.data.doc_id || "");
     } catch (err) {
       console.error("Upload error:", err);
       const msg =
-        err.response?.data?.error || "❌ Error uploading file. Check backend.";
+        err.response?.data?.detail || "❌ Error uploading file. Check backend.";
       setUploadStatus(msg);
       setIsUploaded(false);
     }
@@ -64,19 +67,18 @@ export default function RagDemo() {
 
     setLoading(true);
     try {
-      // ✅ Send as FormData to match FastAPI `Form(...)`
-      const formData = new FormData();
-      formData.append("query", query);
-
-      const res = await axios.post(`${API_BASE}/query`, formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+      // Send JSON body for /query
+      const res = await axios.post(
+        `${API_BASE}/query`,
+        { question: query, top_k: 5 },
+        { headers: { "Content-Type": "application/json" } }
+      );
 
       setAnswer(res.data.answer || "🤔 No answer found.");
     } catch (err) {
       console.error("Query error:", err);
       const msg =
-        err.response?.data?.error || "❌ Error fetching answer. Check backend.";
+        err.response?.data?.detail || "❌ Error fetching answer. Check backend.";
       setAnswer(msg);
     } finally {
       setLoading(false);
