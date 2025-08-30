@@ -70,7 +70,7 @@ export default function RagDemo() {
       // Send JSON body for /query
       const res = await axios.post(
         `${API_BASE}/query`,
-        { question: query, top_k: 5 },
+        { question: query, file_id: docId }, // match backend model
         { headers: { "Content-Type": "application/json" } }
       );
 
