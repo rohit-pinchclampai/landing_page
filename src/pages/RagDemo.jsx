@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function RagDemo() {
   const [file, setFile] = useState(null);
-  const [uploadStatus, setUploadStatus] = useState(""); // For showing upload messages
+  const [uploadStatus, setUploadStatus] = useState(""); // Upload message
   const [isUploaded, setIsUploaded] = useState(false);
   const [docId, setDocId] = useState("");
 
@@ -11,9 +11,13 @@ export default function RagDemo() {
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_BASE = "https://be-r8l1.onrender.com"; // your backend
+  // Dynamically choose API base for local vs deployed
+  const API_BASE =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://be-r8l1.onrender.com";
 
-  // Handle file upload
+  // ------------------- Upload File -------------------
   const handleFileUpload = async (e) => {
     e.preventDefault();
     setUploadStatus("");
@@ -28,24 +32,15 @@ export default function RagDemo() {
     setUploadStatus("📤 Uploading file...");
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("namespace", "default");
-    formData.append("doc_id", file.name);
 
     try {
-      const res = await axios.post(`${API_BASE}/ingest`, formData, {
+      const res = await axios.post(`${API_BASE}/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
-      if (res.data.ok) {
-        setUploadStatus(
-          `✅ File uploaded successfully! Chunks: ${res.data.chunks}`
-        );
-        setIsUploaded(true);
-        setDocId(res.data.doc_id);
-      } else {
-        setUploadStatus("❌ Upload failed. Check backend logs.");
-        setIsUploaded(false);
-      }
+      setUploadStatus(res.data.message || "✅ File uploaded successfully!");
+      setIsUploaded(true);
+      setDocId(res.data.doc_id || "");
     } catch (err) {
       console.error("Upload error:", err);
       const msg =
@@ -55,7 +50,7 @@ export default function RagDemo() {
     }
   };
 
-  // Handle query
+  // ------------------- Query -------------------
   const handleQuery = async (e) => {
     e.preventDefault();
     setAnswer("");
@@ -74,7 +69,6 @@ export default function RagDemo() {
     try {
       const res = await axios.post(`${API_BASE}/query`, {
         question: query,
-        namespace: "default",
         top_k: 5,
       });
 
@@ -89,22 +83,20 @@ export default function RagDemo() {
     }
   };
 
+  // ------------------- JSX -------------------
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center py-12 px-4">
-      <h1 className="text-4xl font-bold text-gray-900 mb-6">RAG Demo</h1>
+      <h1 className="text-4xl font-bold text-gray-900 mb-6">PinchClampAI RAG Demo</h1>
       <p className="text-gray-600 mb-10 text-center max-w-xl">
-        Upload a document and ask questions. Answers will be fetched from your
-        uploaded content.
+        Upload a document and ask questions. Answers are fetched from your uploaded content.
       </p>
 
-      {/* File Upload */}
+      {/* Upload Section */}
       <form
         onSubmit={handleFileUpload}
         className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 mb-8"
       >
-        <label className="block text-gray-700 font-medium mb-2">
-          Upload Document:
-        </label>
+        <label className="block text-gray-700 font-medium mb-2">Upload Document:</label>
         <input
           type="file"
           accept=".pdf,.doc,.docx,.txt"
@@ -128,14 +120,12 @@ export default function RagDemo() {
         )}
       </form>
 
-      {/* Question / Query */}
+      {/* Query Section */}
       <form
         onSubmit={handleQuery}
         className="w-full max-w-2xl bg-white rounded-2xl shadow-md p-6 mb-8"
       >
-        <label className="block text-gray-700 font-medium mb-2">
-          Ask a Question:
-        </label>
+        <label className="block text-gray-700 font-medium mb-2">Ask a Question:</label>
         <textarea
           className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
           rows="4"
