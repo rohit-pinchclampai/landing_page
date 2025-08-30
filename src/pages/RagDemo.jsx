@@ -41,8 +41,7 @@ export default function RagDemo() {
     } catch (err) {
       console.error("Upload error:", err);
       const msg =
-        err.response?.data?.error ||
-        "❌ Error uploading file. Check backend.";
+        err.response?.data?.error || "❌ Error uploading file. Check backend.";
       setUploadStatus(msg);
       setIsUploaded(false);
     }
@@ -65,6 +64,7 @@ export default function RagDemo() {
 
     setLoading(true);
     try {
+      // ✅ Send as FormData to match FastAPI `Form(...)`
       const formData = new FormData();
       formData.append("query", query);
 
