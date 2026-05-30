@@ -1,0 +1,3 @@
+{
+  "/api/pinecone-upsert/route": "app/api/pinecone-upsert/route.js"
+}

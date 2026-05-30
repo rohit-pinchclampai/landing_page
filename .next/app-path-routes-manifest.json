@@ -1,0 +1,16 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/agent/route": "/api/agent",
+  "/api/agent/session/route": "/api/agent/session",
+  "/api/chat/route": "/api/chat",
+  "/api/pinecone-upsert/route": "/api/pinecone-upsert",
+  "/api/rag-chat/route": "/api/rag-chat",
+  "/api/request-vip/route": "/api/request-vip",
+  "/api/rewrite-query/route": "/api/rewrite-query",
+  "/demo/agent/page": "/demo/agent",
+  "/demo/chatbot/page": "/demo/chatbot",
+  "/demo/rag/page": "/demo/rag",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

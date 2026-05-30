@@ -1,0 +1,4 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,20368,e=>{"use strict";var i=e.i(18050),t=e.i(44113),r=e.i(62607);function n({children:e}){return(0,i.jsx)(t.LazyMotion,{features:r.domAnimation,strict:!0,children:(0,i.jsxs)("div",{className:"relative min-h-screen bg-pinch-bg overflow-clip",children:[(0,i.jsx)("div",{className:"fixed inset-0 z-0 pointer-events-none opacity-[0.16]",style:{backgroundImage:`
+              linear-gradient(to right, var(--dot-grid-color) 1px, transparent 1px),
+              linear-gradient(to bottom, var(--dot-grid-color) 1px, transparent 1px)
+            `,backgroundSize:"40px 40px"}}),(0,i.jsx)("div",{className:"relative z-10",children:e})]})})}e.s(["default",()=>n])}]);
