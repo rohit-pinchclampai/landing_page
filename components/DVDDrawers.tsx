@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { m, AnimatePresence } from "framer-motion";
-import { Layers, Briefcase, ChevronRight, ChevronDown, Brain, Cloud, Database } from "lucide-react";
+import { Layers, Briefcase, ChevronRight, ChevronDown, Brain, Cloud } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePullIn } from "@/lib/scroll-animations";
 
@@ -13,6 +13,7 @@ import {
     SiReact,
     SiMongodb,
 } from "react-icons/si";
+import { FaAws } from "react-icons/fa6";
 
 /* ─── Data ─────────────────────────────────────────────────────────────────── */
 
@@ -53,7 +54,7 @@ const techStack: TechItem[] = [
     { name: "Python", category: "Languages", icon: SiPython },
     { name: "FastAPI", category: "APIs", icon: SiFastapi },
     { name: "Web App", category: "Frontend", icon: SiReact },
-    { name: "DynamoDB", category: "Database", icon: Database },
+    { name: "DynamoDB", category: "Database", icon: FaAws },
     { name: "MongoDB", category: "Database", icon: SiMongodb },
 ];
 
@@ -294,7 +295,7 @@ function StackPanel() {
                 <div className="flex w-48 flex-col">
                     <p className="mb-2 text-[10px] font-medium uppercase tracking-widest text-pinch-muted text-center opacity-60">Database</p>
                     <div className="flex flex-col gap-2">
-                        <TechCard icon={Database} name="DynamoDB" />
+                        <TechCard icon={FaAws} name="DynamoDB" />
                         <TechCard icon={SiMongodb} name="MongoDB" />
                     </div>
                 </div>
@@ -316,7 +317,7 @@ function StackPanel() {
                 <div className="flex justify-center py-1"><span className="text-pinch-muted text-xs font-mono opacity-50">⟺</span></div>
                 <p className="mb-2 text-[10px] font-medium uppercase tracking-widest text-pinch-muted text-center opacity-60">Database</p>
                 <div className="flex w-full max-w-[200px] flex-col gap-2">
-                    <TechCard icon={Database} name="DynamoDB" />
+                    <TechCard icon={FaAws} name="DynamoDB" />
                     <TechCard icon={SiMongodb} name="MongoDB" />
                 </div>
             </div>
