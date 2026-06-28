@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
 2:I[47257,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"ClientPageRoot"]
-3:I[3859,["/_next/static/chunks/ecbb64dc112ad516.js","/_next/static/chunks/17b798261ebcd5f6.js","/_next/static/chunks/5a47ea8575057065.js","/_next/static/chunks/2f44e0b62e18f4f8.js","/_next/static/chunks/6a8cedaf58552576.js","/_next/static/chunks/df1a3f84c2454b14.js","/_next/static/chunks/83620034ca1175a9.js"],"default"]
+3:I[3859,["/_next/static/chunks/ecbb64dc112ad516.js","/_next/static/chunks/17b798261ebcd5f6.js","/_next/static/chunks/61c939c9e33318fe.js","/_next/static/chunks/5954014667590a75.js","/_next/static/chunks/ebfa03e4ac408833.js","/_next/static/chunks/a09e5b581d31b0bf.js","/_next/static/chunks/6f21227baacd3f27.js"],"default"]
 6:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/0bd6498bda341889.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"buildId":"WzDhQGSEfMlFFygjW5tA2","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/6a8cedaf58552576.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/df1a3f84c2454b14.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/83620034ca1175a9.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"2J3Q0V8fthMKfIaKF-ZZf","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/ebfa03e4ac408833.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/a09e5b581d31b0bf.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/6f21227baacd3f27.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
 4:{}
 5:{}
 8:null

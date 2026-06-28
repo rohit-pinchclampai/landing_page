@@ -8,6 +8,7 @@
   "/api/rag-chat/route": "app/api/rag-chat/route.js",
   "/api/request-vip/route": "app/api/request-vip/route.js",
   "/api/rewrite-query/route": "app/api/rewrite-query/route.js",
+  "/blogs/[id]/page": "app/blogs/[id]/page.js",
   "/demo/agent/page": "app/demo/agent/page.js",
   "/demo/chatbot/page": "app/demo/chatbot/page.js",
   "/demo/rag/page": "app/demo/rag/page.js",
